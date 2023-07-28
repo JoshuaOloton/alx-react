@@ -1,0 +1,18 @@
+.App {
+  /* text-align: center; */
+}
+
+.App-header {
+  border-bottom: 2px solid #e11d3f;
+  color: #e11d3f;
+  display: flex;
+  align-items: center;
+}
+
+.App-footer {
+  border-top: 2px solid #e11d3f;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
