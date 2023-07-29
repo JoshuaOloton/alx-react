@@ -1,11 +1,18 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: path.resolve(__dirname, 'js/dashboard_main.js'),
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
+  },
+  devtool: 'inline-source-map',
+  devServer: {
+    port: 8564,
+    open: true,
   },
   module: {
     rules: [
@@ -43,5 +50,13 @@ module.exports = {
         ],
       }
     ],
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: 'index.html',
+      chunks: ['header', 'body', 'footer']
+    }),
+    new CleanWebpackPlugin()
+  ]
 }
