@@ -4,7 +4,21 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, 'js/dashboard_main.js'),
+  entry: {
+		header: {
+			import: './modules/header/header.js',
+			dependOn: 'shared',
+		},
+		body: {
+			import: './modules/body/body.js',
+			dependOn: 'shared',
+		},
+		footer: {
+			import: './modules/footer/footer.js',
+			dependOn: 'shared',
+		},
+		shared: 'jquery',
+	},
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: '[name].bundle.js'
@@ -51,6 +65,11 @@ module.exports = {
       }
     ],
   },
+  optimization: {
+		splitChunks: {
+			chunks: 'all',
+		},
+	},
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
