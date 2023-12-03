@@ -1,0 +1,12 @@
+.App {
+  /* text-align: center; */
+}
+
+.Header {
+  display: flex;
+  align-items: start;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  border-bottom: 2px solid #e11d3f;
+}
+
