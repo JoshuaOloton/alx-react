@@ -8,6 +8,12 @@ import CourseList from "../CourseList/CourseList";
 import PropTypes from 'prop-types';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
   listCourses = [
     { id: 1, name: "ES6", credit: 60 },
     { id: 2, name: "Webpack", credit: 20 },
@@ -18,6 +24,13 @@ class App extends React.Component {
     { id: 1, type: "default", value: "New course available" },
     { id: 2, type: "urgent", value: "New resume available" },
   ];
+
+  handleKeyPress(e) {
+    if (e.key === 'h' && e.ctrlKey) {
+      alert('Logging you out');
+      this.props.logOut();
+    }
+  }
 
   render() {
     return (
@@ -37,10 +50,15 @@ class App extends React.Component {
 
 App.defaultProps = {
   isLoggedIn: false,
+  logOut: () => {
+    return;
+  },
 };
 
 App.propTypes = {
   isLoggedIn: PropTypes.bool,
+  logOut: PropTypes.func,
 };
+
 
 export default App;
