@@ -5,9 +5,7 @@ const printBestStudents = (object) => {
 
   const filtered = seq.filter((student) => student.score > 70);
 
-  const capFirstLetter = (name) => {
-    return name.charAt(0).toUpperCase() + name.slice(1);
-  };
+  const capFirstLetter = (name) => name.charAt(0).toUpperCase() + name.slice(1);
 
   const JSObject = filtered.toJS();
 
