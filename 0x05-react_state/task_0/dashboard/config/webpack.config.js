@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -63,18 +62,15 @@ module.exports = {
       },
     ],
   },
-  // optimization: {
-	// 	splitChunks: {
-	// 		chunks: 'all',
-	// 	},
-	// },
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: ["*", ".js", ".jsx"]
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'Hot Module Replacement',
       template: './dist/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      inject: false
     })
   ]
 }
