@@ -1,7 +1,7 @@
 import { getFullYear, getLatestNotification, getFooterCopy } from "./utils";
 
 test('function getFullYear returns the correct year ', () => { 
-  expect(getFullYear()).toEqual(2023);
+  expect(getFullYear()).toEqual(2024);
  })
 
  test('function getFullYear returns the correct string when the argument is true', () => { 
